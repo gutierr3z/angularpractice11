@@ -7,6 +7,8 @@ import { DataService } from './services/data.service';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 
+import {DataTableModule,SharedModule} from 'primeng/primeng';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { MainComponent } from './components/main/main.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    DataTableModule,
+    SharedModule
   ],
   providers: [
     DataService

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { User } from '../components/main/user';
+
 @Injectable()
 export class DataService {
 
@@ -13,9 +15,24 @@ export class DataService {
   }
 
   getUsers() {
-    return this.http.get( this.apiUrl ).map( res => res.json() );
+
+    // return this.http.get( this.apiUrl ).map( res => res.json() );
+
+
+
+    return this.http.get( this.apiUrl )
+      .toPromise()
+      .then( res => {
+        
+        <User[]> res.json();
+
+        console.log( '11111', res );
+      })
+      .then( data => { 
+        console.log( '22222', data );
+        return data } );
   }
-  
+
   getColors() {
     return this.colors;
   }

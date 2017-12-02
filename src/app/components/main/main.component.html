@@ -4,6 +4,8 @@
   </li>
 </ul>
 
-<div *ngFor = "let user of users">
-    {{ user.name }}
-</div>
+<p-dataTable [value]="users">
+    <p-column field="id" header="ID"></p-column>
+    <p-column field="name" header="Name"></p-column>
+    <p-column field="email" header="Email"></p-column>
+</p-dataTable>
