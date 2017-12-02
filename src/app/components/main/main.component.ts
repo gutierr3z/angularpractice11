@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  colors:string[];
+  users:string[];
+
+  constructor( public dataService:DataService ) { 
+    this.colors = this.dataService.getColors();
+
+    this.dataService.getUsers().subscribe( users => {
+      console.log( users );
+      this.users = users;
+    });
+  }
 
   ngOnInit() {
   }
