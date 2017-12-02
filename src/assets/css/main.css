@@ -1,3 +1,9 @@
 .my-dtable {
     border: 3px solid red;
 }
+
+.ui-datatable th.ui-state-default,
+.my-dtable thead tr th {
+    background-color: orange;
+}
+

@@ -18,12 +18,8 @@ export class MainComponent implements OnInit {
   cols: any[];
 
   constructor( private dataService:DataService ) { 
-    this.colors = this.dataService.getColors();
 
-    // this.dataService.getUsers().subscribe( users => {
-    //   console.log( users );
-    //   this.users = users;
-    // });
+    this.colors = this.dataService.getColors();
   }
 
   ngOnInit() {
@@ -33,7 +29,9 @@ export class MainComponent implements OnInit {
     this.cols = [
       {field: 'id', header: 'ID'},
       {field: 'name', header: 'Name'},
-      {field: 'email', header: 'Email'}
+      {field: 'email', header: 'Email'},
+      {field: 'company.name', header: 'Comp Name'},
+      {field: 'company.bs', header: 'B.S.'},
     ];
 
   }
