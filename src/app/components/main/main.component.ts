@@ -10,8 +10,8 @@ import { User } from './user';
 })
 export class MainComponent implements OnInit {
 
-  colors:string[];
-  users:User[];
+  colors:any[];
+  users:any[];
 
   constructor( public dataService:DataService ) { 
     this.colors = this.dataService.getColors();
@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getUsers().then(users => this.users = users);
+    this.dataService.getUsers().then( users => this.users = users );
   }
 
 }

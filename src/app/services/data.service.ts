@@ -18,18 +18,12 @@ export class DataService {
 
     // return this.http.get( this.apiUrl ).map( res => res.json() );
 
-
-
     return this.http.get( this.apiUrl )
       .toPromise()
       .then( res => {
-        
         <User[]> res.json();
-
-        console.log( '11111', res );
       })
       .then( data => { 
-        console.log( '22222', data );
         return data } );
   }
 
