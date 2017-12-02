@@ -4,8 +4,16 @@
   </li>
 </ul>
 
-<p-dataTable [value]="users">
+<p-dataTable [value]="users" styleClass="my-dtable">
+    <p-header styleClass="ui-widget-header">List of Cars</p-header>
+    <p-footer>Choose from the list.</p-footer>
     <p-column field="id" header="ID"></p-column>
-    <p-column field="name" header="Name"></p-column>
+    <p-column field="name" header="Name" [sortable]="true"></p-column>
     <p-column field="email" header="Email"></p-column>
+</p-dataTable>
+<hr>
+<p-dataTable [value]="users">
+    <p-header>List of Cars</p-header>
+    <p-footer>Choose from the list.</p-footer>
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
 </p-dataTable>

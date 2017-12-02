@@ -21,8 +21,8 @@ export class DataService {
     return this.http.get( this.apiUrl )
       .toPromise()
       .then( res => {
-        <User[]> res.json();
-      })
+        return <User[]> res.json();
+       })
       .then( data => { 
         return data } );
   }

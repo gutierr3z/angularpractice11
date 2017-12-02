@@ -3,6 +3,9 @@ import { DataService } from '../../services/data.service';
 
 import { User } from './user';
 
+import {Header} from 'primeng/primeng';
+import {Footer} from 'primeng/primeng';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -11,9 +14,10 @@ import { User } from './user';
 export class MainComponent implements OnInit {
 
   colors:any[];
-  users:any[];
+  users:User[];
+  cols: any[];
 
-  constructor( public dataService:DataService ) { 
+  constructor( private dataService:DataService ) { 
     this.colors = this.dataService.getColors();
 
     // this.dataService.getUsers().subscribe( users => {
@@ -23,7 +27,15 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService.getUsers().then( users => this.users = users );
+    
+    this.dataService.getUsers().then( usersx => this.users = usersx );
+
+    this.cols = [
+      {field: 'id', header: 'ID'},
+      {field: 'name', header: 'Name'},
+      {field: 'email', header: 'Email'}
+    ];
+
   }
 
 }
