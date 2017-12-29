@@ -30,5 +30,5 @@ export class DataService {
   getColors() {
     return this.colors;
   }
-  
+
 }
